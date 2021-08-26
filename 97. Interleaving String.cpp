@@ -25,6 +25,7 @@ public:
     }
     bool isInterleave(string s1, string s2, string s3) {
         int i;
+        mp.clear();
         i = lcs(s1,s2,s3,s1.length()-1,s2.length()-1,s3.length()-1);
         if(i==s3.length() && s3.length()==(s1.length()+s2.length())){return true;}
         return false;

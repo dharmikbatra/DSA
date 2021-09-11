@@ -1,6 +1,7 @@
 class Solution {
 public:
     Solution(){
+        memset(dp,-1,sizeof(dp));
         mp[0]={4,6};
         mp[1]={6,8};
         mp[2]={7,9};
@@ -13,12 +14,11 @@ public:
         mp[9]={2,4};
     }
     map<int,vector<int> > mp;
-    map<pair<int,int>,int> dp;
+    int dp[10][5001];
     int solve(int i,int &n){
         if(n==1){return 1;}
         else{
-            auto itr = dp.find({i,n});
-            if(itr!=dp.end()){return itr->second;}
+            if(dp[i][n]!=-1){return dp[i][n];}
             long int ans=0;
             n--;
             for(int j=0;j<mp[i].size();j++){
@@ -26,7 +26,7 @@ public:
                 ans = ans%1000000007;
             }
             n++;
-            return dp[{i,n}]= (int)ans;
+            return dp[i][n]= (int)ans;
         }
         
     }

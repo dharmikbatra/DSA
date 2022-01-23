@@ -1,1 +1,3 @@
-Leetcode Solutions
+Leetcode Coding Solutions
+
+Language: C++
